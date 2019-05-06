@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="root">
+    <input type="text" v-model="person.age">
+    {{ person.age }}
+    <p>{{person.name}}</p>
+    {{ myname }}
+    <button v-on:click="change">点我</button>
+  </div>
+  <script src='./compileUtil.js'></script>
+  <script src='./Watcher.js'></script>
+  <script src='./compiler.js'></script>
+  <script src='./dep.js'></script>
+  <script src='./observer.js'></script>
+  <script src='./index.js'></script>
+  <script>
+    let vm = new Vue({
+      el: '.root',
+      data: {
+        person: {
+          name: 'hrh',
+          age: 19
+        },
+        count: 1000,
+      },
+      methods: {
+        change() {
+          this.count = this.count + 100
+        }
+      },
+      computed: {
+        myname() {
+          console.log(this.count);
+          
+          return '我是' + this.count
+        }
+      }
+    })
+    
+  </script>
+
+</body>
+
+</html>
